@@ -47,6 +47,7 @@ task:
       - repo init -q --no-repo-verify --depth=1 -u https://github.com/Spark-Rom/manifest -b spark -g default,-device,-mips,-darwin,-notdefault
       - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
       # DT/VT/KT/TC
+      - rm -rf platform/packages/modules/Virtualization
       - git clone --depth=1 https://github.com/Spark-Devices/android_device_xiaomi_juice -b spark device/xiaomi/juice
       - git clone --depth=1 https://github.com/Spark-Devices/android_vendor_xiaomi_juice --single-branch -b spark vendor/xiaomi/juice
       - git clone --depth=1 https://github.com/c3eru/android_kernel_xiaomi_juice --single-branch -b main kernel/xiaomi/juice
