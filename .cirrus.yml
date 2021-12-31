@@ -26,7 +26,7 @@ task:
        - git config --global user.name "c3eru"
        - git config --global user.email "yyprjkt@gmail.com"
        - mkdir -p /tmp/ccache
-       - rclone copy mobx:ProjectRadiant/ccache.tar.gz /tmp -P
+       - rclone copy mobx:Weeb/ccache.tar.gz /tmp -P
        - cd /tmp
        - time tar xf ccache.tar.gz
        - cd /tmp
@@ -42,12 +42,12 @@ task:
       - echo "============================"
       - curl -s https://api.telegram.org/$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="Mulai sinkronisasi Sumber..."
       - cd /tmp/rom
-      - repo init -q --no-repo-verify --depth=1 -u https://github.com/ProjectRadiant/manifest -b eleven -g default,-device,-mips,-darwin,-notdefault
+      - repo init -q --no-repo-verify --depth=1 -u https://github.com/WeebProjekt/platform_manifest -b reborn -g default,-device,-mips,-darwin,-notdefault
       - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
       # DT/VT/KT/TC
-      - git clone --depth=1 https://github.com/c3eru/radiant_device_tree -b eleven device/xiaomi/juice
+      - git clone --depth=1 https://github.com/c3eru/nitrogen_device_tree -b main device/xiaomi/juice
       - git clone --depth=1 https://github.com/c3eru/vendor_tree --single-branch -b 11.0 vendor/xiaomi/juice
-      - git clone --depth=1 https://github.com/c3eru/android_kernel_xiaomi_bengal --single-branch -b main kernel/xiaomi/juice
+      - git clone --depth=1 https://github.com/c3eru/KERNEL_A11 --single-branch -b 11.0 kernel/xiaomi/juice
       - git clone --depth=1 https://github.com/kdrag0n/proton-clang -b master prebuilts/clang/host/linux-x86/clang-proton
       - curl -s https://api.telegram.org/$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="Sinkronisasi Selesai!"
       - echo "============================"
@@ -60,7 +60,7 @@ task:
       - echo "============================"
       - ./collect.sh
 #      - ./final.sh
-      - curl -s https://api.telegram.org/$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="Build $(cd /tmp/rom/out/target/product/juice/ && ls ProjectRadiant*.zip) Completed!"
+      - curl -s https://api.telegram.org/$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="Build $(cd /tmp/rom/out/target/product/juice/ && ls Weeb*.zip) Completed!"
       - echo "============================"
       - echo "Build Completed!"
       - echo "============================"
@@ -69,15 +69,15 @@ task:
       - echo "============================"
       - echo "Mengunggah Build...."
       - echo "============================"
-      - curl -s https://api.telegram.org/$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="Uploading Build $(cd /tmp/rom/out/target/product/juice/ && ls ProjectRadiant*.zip)"
-#      - rclone copy /tmp/rom/out/target/product/juice/ProjectRadiant*.zip mobx:juice -P
-      - curl -s https://api.telegram.org/$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="Build $(cd /tmp/rom/out/target/product/juice/ && ls ProjectRadiant*.zip) Uploaded Successfully!"
-      - curl -s https://api.telegram.org/$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="Download link https://cloud.mobxs.workers.dev/juice/$(cd /tmp/rom/out/target/product/juice/ && ls ProjectRadiant*.zip)"
+      - curl -s https://api.telegram.org/$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="Uploading Build $(cd /tmp/rom/out/target/product/juice/ && ls Weeb*.zip)"
+#      - rclone copy /tmp/rom/out/target/product/juice/Weeb*.zip mobx:juice -P
+      - curl -s https://api.telegram.org/$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="Build $(cd /tmp/rom/out/target/product/juice/ && ls Weeb*.zip) Uploaded Successfully!"
+      - curl -s https://api.telegram.org/$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="Download link https://cloud.mobxs.workers.dev/juice/$(cd /tmp/rom/out/target/product/juice/ && ls Weeb*.zip)"
       - curl -s https://api.telegram.org/$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="Compres ccache"
       - ./ziping.sh
       - cd /tmp
       - curl -s https://api.telegram.org/$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="Uploading ccache...."
-      - rclone copy ccache.tar.gz mobx:ProjectRadiant -P
+      - rclone copy ccache.tar.gz mobx:Weeb -P
       - echo " "
       - echo "============================"
       - echo "Build Berhasil Diunggah!"
