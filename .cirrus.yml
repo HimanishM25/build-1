@@ -2,7 +2,7 @@ env:
     rcloneconfig: "ENCRYPTED[4895dafbeedcd240d24cbd2faaa83231cf4bd310a4b0d1f1c38ca2b37c4603c5cf1b6e84fd9194c2b7430c4486796387]"
     TG_TOKEN: "ENCRYPTED[50701e9f27f834a4a99c0aa06f8f1a1c85cc923f196a7554d8204ea55ec7289d82eebc11930d132fdf8a355d42f1fdbf]"
     TG_CHAT_ID: "ENCRYPTED[a4a78dd24020e099215701732a11b071378a3912e9c550ac3acd3dd64350c78ceea095d907dc840f21e77897b775dbe1]"
-
+ 
 task:
   name: "Setting Up, Syncing, Building and Uploading..."
   timeout_in: 480m  
